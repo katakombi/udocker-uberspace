@@ -34,8 +34,8 @@ cd ~ && unzip ./QtWebApp.zip
 
 ### Find free local port
 ```
-WWW_PORT=$(( $RANDOM % 4535 + 61000)); netstat -tulpen | grep $HOODIE_WWW_PORT && echo "try again"
-sed -i 's/^port=8080/port='$WWW_PORT'/ ~/QtWebApp/Demo1/etc/Demo1.ini
+WWW_PORT=$(( $RANDOM % 4535 + 61000)); netstat -tulpen | grep $WWW_PORT && echo "try again"
+sed -i 's/^port=8080/port='$WWW_PORT'/' ~/QtWebApp/Demo1/etc/Demo1.ini
 cat << EOF > ~/html/.htaccess
 RewriteEngine On
 RewriteRule (.*) http://localhost:$WWW_PORT/$1 [P]
