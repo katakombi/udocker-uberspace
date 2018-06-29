@@ -18,8 +18,8 @@ udocker create --name=Ubuntu_Qt5 ubuntu:bionic
 cat << EOF > ~/install.sh
 #!/bin/bash
 apt-get update && apt-get -y upgrade
-apt-mark hold dbus # this creates new groups which is not possible in udocker
-apt-get install -y make g++ qt5-default
+apt-mark hold dbus # dbus creates new groups upon installation which is not possible in udocker
+apt-get install -y vim make g++ qt5-default
 EOF
 chmod a+x ~/install.sh
 
@@ -42,7 +42,14 @@ RewriteRule (.*) http://localhost:$WWW_PORT/$1 [P]
 EOF
 ```
 
-### Compile and run TODO
+### Compile
 ```
-udocker run --user=$USER --hostauth --hostenv --bindhome -i -t Ubuntu_Qt5 bash
+udocker run --user=$USER --hostauth --hostenv --bindhome -i -t Ubuntu_Qt5 /bin/sh -c 'cd ~/QtWebApp/Demo1/ && qmake && make'
 ```
+
+### Run
+```
+udocker run --user=$USER --hostauth --hostenv --bindhome -i -t Ubuntu_Qt5 /bin/sh -c 'cd ~/QtWebApp/Demo1/ && ./Demo1'
+```
+### Test
+firefox https://masterwu.uber.space
