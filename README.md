@@ -38,7 +38,7 @@ WWW_PORT=$(( $RANDOM % 4535 + 61000)); netstat -tulpen | grep $WWW_PORT && echo 
 sed -i 's/^port=8080/port='$WWW_PORT'/' ~/QtWebApp/Demo1/etc/Demo1.ini
 cat << EOF > ~/html/.htaccess
 RewriteEngine On
-RewriteRule (.*) http://localhost:$WWW_PORT/$1 [P]
+RewriteRule ^(.*)$ http://localhost:$WWW_PORT/$1 [P]
 EOF
 ```
 
