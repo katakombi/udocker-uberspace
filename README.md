@@ -49,7 +49,7 @@ udocker run --user=$USER --hostauth --hostenv --bindhome -i -t Ubuntu_Qt5 /bin/s
 
 ### Run
 ```
-udocker run --user=$USER --hostauth --hostenv --bindhome -i -t Ubuntu_Qt5 /bin/sh -c 'cd ~/QtWebApp/Demo1/ && ./Demo1'
+udocker run --user=$USER --hostauth --hostenv --bindhome Ubuntu_Qt5 /bin/sh -c 'cd ~/QtWebApp/Demo1/ && ./Demo1'&
 ```
 ### Test
 firefox https://udocker.uber.space
